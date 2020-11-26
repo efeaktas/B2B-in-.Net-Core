@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Bilgiler</h3>
+                </div>
+                <form id="createProductForm" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="inputName">Ürün İsmi</label>
+                            <input type="text" id="txtProductName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">Stok Adeti</label>
+                            <input type="number" min="0" step="1" id="txtQuantity" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">Birim Alış Fiyatı</label>
+                            <input type="text" id="txtBuyingPrice" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">Birim Satış Fiyatı</label>
+                            <input type="text" id="txtSalePrice" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <!-- /.card -->
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <a href="/Admin/Product/List" class="btn btn-secondary" style="background-color:red !important;border-color:red !important;">İptal Et</a>
+                            <input type="submit" value="Oluştur" class="btn btn-success float-right">
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </form> <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <div class="col-md-2">
+
+            <!-- /.card -->
+        </div>
+    </div>
+
+</section>
+@section JS{
+    <script>var createProductUrl = '/Admin/Product/CreateProduct';</script>
+    <script src="/js/CustomScripts/Product/createProduct.js"></script>
+}
+

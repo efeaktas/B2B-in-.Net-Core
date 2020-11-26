@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+@using Bayi.DTO.Product
+@model List<ListProductResponse>
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Ürün Tablosu</h3>
+            </div>
+            <div class="card-body">
+
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Ürün</th>
+                            <th>Stok Adeti</th>
+                            <th>Birim Alış Fiyatı</th>
+                            <th>Birim Satış Fiyatı</th>
+                            <th id="thUpdate"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ListProductResponse product in Model)
+                        {
+                            <tr>
+                                <td>@product.Id</td>
+                                <td>@product.ProductName</td>
+                                <td>@product.Quantity</td>
+                                <td>@product.BuyingPrice₺</td>
+                                <td>@product.SalePrice₺</td>
+                                <td class="text-center">
+                                    <a href="/Admin/Product/Update?productId=@product.Id" class="btn btn-secondary btn-sm float-right">Düzenle</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </section>
+    @section JS{
+        <script src="/js/CustomScripts/Product/listProduct.js"></script>
+    }

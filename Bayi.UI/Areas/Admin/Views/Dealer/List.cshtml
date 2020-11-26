@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+@using Bayi.DTO.Dealer
+@model List<ListDealerResponse>
+<section class="content">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Bayi Tablosu</h3>
+        </div>
+        <div class="card-body">
+
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Firma Ünvanı</th>
+                        <th>Yetkili Kişi</th>
+                        <th>Adres</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                        <th id="thUpdate"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ListDealerResponse dealer in Model)
+                    {
+                    <tr>
+                        <td>@dealer.Id</td>
+                        <td>@dealer.CompanyName</td>
+                        <td>@dealer.Authorized</td>
+                        <td>@dealer.Address</td>
+                        <td>@dealer.Phone</td>
+                        <td>@dealer.Email</td>
+                        <td class="text-center">
+                            <a href="/Admin/Dealer/Update?dealerId=@dealer.Id" class="btn btn-secondary btn-sm float-right">Düzenle</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</section>
+@section JS{
+
+    <script src="/js/CustomScripts/Dealer/listDealer.js"></script>
+}
+

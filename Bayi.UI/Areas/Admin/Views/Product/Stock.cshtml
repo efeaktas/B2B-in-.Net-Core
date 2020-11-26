@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewData["Title"] = "Stock";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+@using Bayi.DTO.Product
+@model List<ListProductNameResponse>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                <h1>Stok Kaydı</h1>
+            </div>
+            <div class="col-md-5">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Stok Kaydı</a></li>
+                    <li class="breadcrumb-item active">Stok Kaydı Oluştur</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Bilgiler</h3>
+
+
+                </div>
+                <form id="stockForm" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Ürün İsmi</label>
+                            <select id="selectProduct" class="form-control select2" style="width: 100%;">
+                                @foreach (ListProductNameResponse productNameResponse in Model)
+                                {
+                                    <option class="optionValue" data-stock="@productNameResponse.Quantity" data-id="@productNameResponse.Id">@productNameResponse.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Mevcut Ürünün Stok Adeti</label>
+                            <input type="text" class="form-control" id="txtProductStock" value="" placeholder="" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">İşlem Yapılacak Adet</label>
+                            <input type="number" min="0" step="1" id="txtQuantity" class="form-control" required>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+
+                        <!-- /.card -->
+                    </div>
+                    <div class="row mb-4">
+
+                        <div class="col-12">
+                            <a href="/Admin/Product/List" class="btn btn-secondary ml-3" style="background-color:red !important;border-color:red !important;">İptal Et</a>
+                            <input type="submit" value="Ekle" class="btn btn-success float-right mr-3" style="width:65px;">
+
+                            <button type="submit" style="width: 65px; height: 38px;" id="btnSubtract" class="btn btn-danger float-right mr-2">Çıkar</button>
+                        </div>
+
+                    </div>
+                </form> <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <div class="col-md-2">
+
+            <!-- /.card -->
+        </div>
+    </div>
+
+</section>
+@section JS{
+    <script>var stockProductUrl = '/Admin/Product/StockProduct';</script>
+    <script>var subtractStockProductUrl = '/Admin/Product/SubtractStockProduct';</script>
+    <script src="/js/CustomScripts/Product/subtractStockProduct.js"></script>
+    <script src="/js/CustomScripts/Product/stockProduct.js"></script>
+}
+

@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+@using Bayi.DTO.Sale
+@model List<ListSaleResponse>
+<section class="content">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Satış Tablosu</h3>
+        </div>
+        <div class="card-body">
+
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Firma Ünvanı</th>
+                        <th>Ürün İsmi</th>
+                        <th>Birim Fiyatı</th>
+                        <th>Ürün Adeti</th>
+                        <th>Toplam Fiyat</th>
+                        <th>Satış Tarihi</th>
+                        <th id="thUpdate"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ListSaleResponse saleResponse in Model)
+                    {
+                    <tr>
+                        <td>@saleResponse.Id</td>
+                        <td>@saleResponse.CompanyName</td>
+                        <td>@saleResponse.ProductName</td>
+                        <td>@saleResponse.UnitPrice₺</td>
+                        <td>@saleResponse.Quantity</td>
+                        <td>@saleResponse.TotalPrice₺</td>
+                        <td>@saleResponse.DateOfSale</td>
+                        <td class="text-center">
+                            <a href="" id="btnDelete" data-record-id="@saleResponse.Id" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger btn-sm float-right">Sil</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+
+
+
+</section>
+@section JS{
+    <script>var deleteSaleUrl ='/Admin/Sale/DeleteSale';</script>
+    <script src="/js/CustomScripts/Sale/deleteSale.js"></script>
+    <script src="/js/CustomScripts/Sale/listSale.js"></script>
+}
+

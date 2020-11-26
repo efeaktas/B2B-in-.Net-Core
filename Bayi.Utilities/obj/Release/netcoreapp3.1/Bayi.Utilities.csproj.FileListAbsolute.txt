@@ -1,0 +1,9 @@
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\bin\Release\netcoreapp3.1\Bayi.Utilities.deps.json
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\bin\Release\netcoreapp3.1\Bayi.Utilities.dll
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\bin\Release\netcoreapp3.1\Bayi.Utilities.pdb
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\obj\Release\netcoreapp3.1\Bayi.Utilities.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\obj\Release\netcoreapp3.1\Bayi.Utilities.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\obj\Release\netcoreapp3.1\Bayi.Utilities.AssemblyInfo.cs
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\obj\Release\netcoreapp3.1\Bayi.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\obj\Release\netcoreapp3.1\Bayi.Utilities.dll
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.Utilities\obj\Release\netcoreapp3.1\Bayi.Utilities.pdb

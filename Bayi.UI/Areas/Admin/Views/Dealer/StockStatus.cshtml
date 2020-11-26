@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "StockStatus";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+@using Bayi.DTO.Dealer
+@model List<ListDealerStockStatusResponse> 
+<section class="content">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Bayilerin Stok Listesi</h3>
+        </div>
+        <div class="card-body">
+
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Firma Ünvanı</th>
+                        <th>Ürün İsmi</th>
+                        <th>Stok Adeti</th>
+
+                        <th id="thUpdate"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ListDealerStockStatusResponse dealer in Model)
+                    {
+                    <tr>
+                        <td>@dealer.Id</td>
+                        <td>@dealer.CompanyName</td>
+                        <td>@dealer.ProductName</td>
+                        <td>@dealer.Quantity</td>
+                        <td class="text-center">
+                        </td>
+
+                    </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+
+</section>
+@section JS{
+    <script src="/js/CustomScripts/Dealer/listDealerStock.js"></script>
+}
+

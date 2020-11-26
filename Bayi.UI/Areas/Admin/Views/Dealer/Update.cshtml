@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+@model Bayi.DTO.Dealer.ListDealerResponse
+<section class="content">
+
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-md-4"></div>
+                <div class="col-md-3">
+                    <h1>Bayi Düzenle</h1>
+                </div>
+                <div class="col-md-5">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Bayi Yönetimi</a></li>
+                        <li class="breadcrumb-item active">Bayi Düzenle</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Bilgiler</h3>
+
+
+                    </div>
+                    <form id="dealerForm" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="inputName">Firma Ünvanı</label>
+                                <input type="text" id="txtCompanyName" value="@Model.CompanyName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName">Yetkili Kişi</label>
+                                <input type="text" id="txtAuthorized" value="@Model.Authorized" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Adres</label>
+                                <input type="text" id="txtAddress" value="@Model.Address" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Telefon</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    </div>
+                                    <input type="text" id="txtPhone" value="@Model.Phone" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" inputmode="text">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" id="txtEmail" value="@Model.Email" class="form-control" placeholder="Email" required>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+
+                            <!-- /.card -->
+                        </div>
+                        <div class="row mb-4">
+
+                            <div class="col-12">
+                                <a href="/Admin/Dealer/List" class="btn btn-secondary ml-3" style="background-color:red !important;border-color:red !important;">İptal Et</a>
+
+                                <input type="submit" id="btnUpdate" value="Düzenle" data-id="@Model.Id" class="btn btn-success float-right mr-3">
+
+                                <button type="button" style="width: 50px; height: 38px;" id="btnDelete" data-record-id="@Model.Id" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger float-right mr-2">Sil</button>
+
+                            </div>
+
+                        </div>
+                    </form>
+
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /.content -->
+
+
+
+</section>
+@section JS{
+    <script>var updateDealerUrl ='/Admin/Dealer/UpdateDealer';</script>
+    <script>var deleteDealerUrl ='/Admin/Dealer/DeleteDealer';</script>
+    <script src="/js/CustomScripts/Dealer/updateDealer.js"></script>
+    <script src="/js/CustomScripts/Dealer/deleteDealer.js"></script>
+}
+

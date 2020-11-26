@@ -1,0 +1,9 @@
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\bin\Release\netcoreapp3.1\Bayi.DTO.deps.json
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\bin\Release\netcoreapp3.1\Bayi.DTO.dll
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\bin\Release\netcoreapp3.1\Bayi.DTO.pdb
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\obj\Release\netcoreapp3.1\Bayi.DTO.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\obj\Release\netcoreapp3.1\Bayi.DTO.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\obj\Release\netcoreapp3.1\Bayi.DTO.AssemblyInfo.cs
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\obj\Release\netcoreapp3.1\Bayi.DTO.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\obj\Release\netcoreapp3.1\Bayi.DTO.dll
+C:\Users\HP\Desktop\Projeler\Bayi\Bayi.DTO\obj\Release\netcoreapp3.1\Bayi.DTO.pdb

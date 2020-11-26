@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "BuyingList";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+ @using Bayi.DTO.Sale
+@model List<ListSaleResponse>
+<section class="content">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Alış Tablosu</h3>
+        </div>
+        <div class="card-body">
+
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+
+
+                        <th>Ürün İsmi</th>
+                        <th>Birim Fiyatı</th>
+                        <th>Ürün Adeti</th>
+                        <th>Toplam Fiyat</th>
+                        <th>Satış Tarihi</th>
+                        <th id="thUpdate"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ListSaleResponse saleResponse in Model)
+                    {
+                    <tr>
+
+                        <td>@saleResponse.ProductName</td>
+                        <td>@saleResponse.UnitPrice₺</td>
+                        <td>@saleResponse.Quantity</td>
+                        <td>@saleResponse.TotalPrice₺</td>
+                        <td>@saleResponse.DateOfSale</td>
+                        <td class="text-center">
+                        </td>
+                    </tr>
+                    }
+
+
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+
+</section>
+@section JS{
+
+    <script src="/js/CustomScriptsClient/Product/listProductStockStatus.js"></script>
+}
+

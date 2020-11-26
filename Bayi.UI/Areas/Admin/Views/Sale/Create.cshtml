@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+@using Bayi.DTO.Dealer
+@using Bayi.DTO.Product
+
+@{
+    List<ListDealerNameResponse> dealers = ViewBag.Dealers as List<ListDealerNameResponse>;
+    List<ListProductForSaleResponse> products = ViewBag.Products as List<ListProductForSaleResponse>;
+}
+<section class="content">
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-5">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Satış Yönetimi</a></li>
+                        <li class="breadcrumb-item active">Satış Yap</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Satış Yap</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <form id="saleForm" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Bayi İsmi</label>
+                                <select id="selectDealer" class="form-control select2" style="width: 100%;">
+                                    @foreach (ListDealerNameResponse dealer in dealers)
+                                    {
+                                        <option data-id="@dealer.Id">@dealer.Name</option>
+                                    }
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Ürün İsmi</label>
+                                <select id="selectProduct" class="form-control select2" style="width: 100%;">
+                                    @foreach (ListProductForSaleResponse product in products)
+                                    {
+                                        <option class="optionValue" data-id="@product.Id" data-stock="@product.Quantity" data-price="@product.SalePrice">@product.ProductName</option>
+                                    }
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Stok Adeti</label>
+                                <input type="text" class="form-control" id="txtProductStock" value="" placeholder="" disabled="disabled">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEstimatedBudget">Satış Adeti</label>
+                                <input type="number" min="0" step="1" id="txtSaleQuantity" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEstimatedBudget">Birim Satış Fiyatı</label>
+                                <input type="text" id="txtUnitSalePrice" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Toplam Satış Fiyatı</label>
+                                <input type="text" class="form-control" id="txtTotalPrice" value="" placeholder="" disabled="disabled">
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <a href="/Admin/Sale/List" class="btn btn-secondary" style="background-color:red !important;border-color:red !important;">İptal Et</a>
+                                    <input type="submit" id="btnSell" value="Satış Yap" class="btn btn-success float-right">
+                                </div>
+
+                            </div>
+                        </div>
+                    </form> <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <div class="col-md-2">
+
+                <!-- /.card -->
+            </div>
+        </div>
+
+    </section>
+    <!-- /.content -->
+
+
+
+</section>
+@section JS{
+    <script src="/js/CustomScripts/Sale/createSale.js"></script>
+    <script>var createSaleUrl = '/Admin/Sale/CreateSale';</script>
+}

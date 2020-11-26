@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "StockStatus";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+@using Bayi.DTO.Dealer
+@model List<ListDealerStockStatusResponse>
+<section class="content">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Ürün Stok Tablosu</h3>
+        </div>
+        <div class="card-body">
+
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Ürün İsmi</th>
+                        <th>Stok Adeti</th>
+                        <th id="thUpdate"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ListDealerStockStatusResponse stock in Model)
+                    {
+                        <tr>
+                            <td>@stock.Id</td>
+                            <td>@stock.ProductName</td>
+                            <td>
+                                @stock.Quantity
+                            </td>
+                            <td>
+                            </td>
+
+                        </tr>
+                    }
+
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+
+
+</section>
+@section JS{
+
+    <script src="/js/CustomScriptsClient/Product/listProductStockStatus.js"></script>
+}
+

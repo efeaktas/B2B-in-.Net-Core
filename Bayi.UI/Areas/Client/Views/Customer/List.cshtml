@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+@using Bayi.DTO.Customer
+@model List<ListCustomerResponse>
+<section class="content">
+
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Müşteri Tablosu</h3>
+        </div>
+        <div class="card-body">
+
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+
+                        <th>Firma Ünvanı</th>
+                        <th>Yetkili Kişi</th>
+                        <th>Adres</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                        <th id="thUpdate"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ListCustomerResponse customer in Model)
+                    {
+                        <tr>
+
+                            <td>@customer.CompanyName</td>
+                            <td>@customer.Authorized</td>
+                            <td>@customer.Address</td>
+                            <td>@customer.Phone</td>
+                            <td>@customer.Email</td>
+                            <td class="text-center">
+                                <a href="/Client/Customer/Update?customerId=@customer.Id" class="btn btn-secondary btn-sm float-right">Düzenle</a>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</section>
+@section JS{
+    <script src="/js/CustomScriptsClient/Customer/listCustomer.js"></script>
+}
+
